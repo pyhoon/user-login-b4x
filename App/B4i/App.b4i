@@ -1,0 +1,100 @@
+﻿Build1=Default,user.login.app.b4i
+File1=About.bil
+File10=PasswordReset.bil
+File11=Splash.bil
+File12=UserLogin.bil
+File13=UserRegister.bil
+File2=default.png
+File3=HomePage.bil
+File4=LeftMenu.bil
+File5=ListItem.bil
+File6=loading.gif
+File7=MenuItem.bil
+File8=nav-menu-header-bg.jpg
+File9=PasswordChange.bil
+FileGroup1=Layouts
+FileGroup10=Layouts
+FileGroup11=Layouts
+FileGroup12=Layouts
+FileGroup13=Layouts
+FileGroup2=Assets
+FileGroup3=Layouts
+FileGroup4=Layouts
+FileGroup5=Layouts
+FileGroup6=Assets
+FileGroup7=Layouts
+FileGroup8=Assets
+FileGroup9=Layouts
+Group=Default Group
+Library1=icore
+Library2=b4xpages
+Library3=keyvaluestore
+Library4=b4xdrawer
+Library5=b4xgifview
+Library6=ihud
+Library7=ijson
+Library8=xui views
+Library9=ihttputils2
+Module1=|relative|..\B4XMainPage
+Module2=|relative|..\B4XPagePassword
+Module3=|relative|..\B4XPageUser
+Module4=|relative|..\Utility
+NumberOfFiles=13
+NumberOfLibraries=9
+NumberOfModules=4
+Version=6.8
+@EndOfDesignText@
+'Code module
+#Region  Project Attributes 
+	#ApplicationLabel: App
+	#Version: 1.0.0 
+	'Orientation possible values: Portrait, LandscapeLeft, LandscapeRight and PortraitUpsideDown
+	#iPhoneOrientations: Portrait, LandscapeLeft, LandscapeRight
+	#iPadOrientations: Portrait, LandscapeLeft, LandscapeRight, PortraitUpsideDown
+	#Target: iPhone, iPad
+	#ATSEnabled: True
+	#MinVersion: 9
+#End Region
+#Region Certificate
+#If RELEASE
+	#CertificateFile: ios_distribution.cer
+	#ProvisionFile: Elitebook_distribution_ad_hoc.mobileprovision	
+#End If
+#If DEBUG
+	#CertificateFile: ios_development.cer
+	#ProvisionFile: Elitebook_development.mobileprovision
+#End If
+#End Region
+Sub Process_Globals
+	Public App As Application
+	Public NavControl As NavigationController
+	Public gLogin As Int = 0
+	Public gUserName As String
+	Public gUserEmail As String
+	Public gUserLocation As String
+	Public gUserAPIKey As String
+	Public gUserToken As String
+	Public DEMO_NAME As String = "Aeric Poon"
+	Public DEMO_EMAIL As String = "aeric80@gmail.com"
+	Public DEMO_PASSWORD As String = "DemoPassword"
+	Public DEV As Boolean = True
+	'Public strURL As String = "http://localhost:17178/"				' Local B4J server
+	Public strURL As String = "https://api.puterise.com:17179/"	' Remote / Production
+End Sub
+
+Private Sub Application_Start (Nav As NavigationController)
+	NavControl = Nav
+	Dim PagesManager As B4XPagesManager
+	PagesManager.Initialize(NavControl)
+End Sub
+
+'Template version: B4i-1.0
+#Region Delegates
+Private Sub Application_Background
+	B4XPages.Delegate.Activity_Pause
+End Sub
+
+Private Sub Application_Foreground
+	B4XPages.Delegate.Activity_Resume
+End Sub
+#End Region

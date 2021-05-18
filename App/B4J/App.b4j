@@ -1,0 +1,101 @@
+﻿AppType=JavaFX
+Build1=Default,user.login.app.b4j
+File1=About.bjl
+File10=PasswordReset.bjl
+File11=Splash.bjl
+File12=stylesheet.css
+File13=UserLogin.bjl
+File14=UserRegister.bjl
+File2=default.png
+File3=HomePage.bjl
+File4=LeftMenu.bjl
+File5=ListItem.bjl
+File6=loading.gif
+File7=MenuItem.bjl
+File8=nav-menu-header-bg.jpg
+File9=PasswordChange.bjl
+FileGroup1=Layout
+FileGroup10=Layout
+FileGroup11=Layout
+FileGroup12=Asset
+FileGroup13=Layout
+FileGroup14=Layout
+FileGroup2=Asset
+FileGroup3=Layout
+FileGroup4=Layout
+FileGroup5=Layout
+FileGroup6=Asset
+FileGroup7=Layout
+FileGroup8=Asset
+FileGroup9=Layout
+Group=Default Group
+Library1=jcore
+Library10=b4xdrawer
+Library2=jfx
+Library3=b4xpages
+Library4=b4xgifview
+Library5=keyvaluestore
+Library6=clxtoastmessage
+Library7=json
+Library8=jokhttputils2
+Library9=xui views
+Module1=|relative|..\B4XMainPage
+Module2=|relative|..\B4XPagePassword
+Module3=|relative|..\B4XPageUser
+Module4=|relative|..\Utility
+NumberOfFiles=14
+NumberOfLibraries=10
+NumberOfModules=4
+Version=8.5
+@EndOfDesignText@
+#Region Project Attributes 
+	#MainFormWidth: 600
+	#MainFormHeight: 600 
+#End Region
+#PackagerProperty: IconFile = ..\..\Shared Files\icon.png
+Sub Process_Globals
+	Private fx As JFX
+	Private MainForm As Form
+	Public gLogin As Int = 0
+	Public gUserName As String
+	Public gUserEmail As String
+	Public gUserLocation As String
+	Public gUserAPIKey As String
+	Public gUserToken As String
+	Public DEMO_NAME As String = "Aeric Poon"
+	Public DEMO_EMAIL As String = "aeric80@gmail.com"
+	Public DEMO_PASSWORD As String = "DemoPassword"
+	Public DEV As Boolean = True
+	'Public strURL As String = "http://localhost:17178/"				' Local B4J server
+	Public strURL As String = "https://api.puterise.com:17179/"	' Remote / Production
+End Sub
+
+Sub AppStart (Form1 As Form, Args() As String)
+	MainForm = Form1
+	MainForm.Stylesheets.Add(File.GetUri(File.DirAssets, "stylesheet.css"))
+	Dim PagesManager As B4XPagesManager
+	PagesManager.Initialize(MainForm)
+End Sub
+
+'Template version: B4J-1.0
+#Region Delegates
+Sub MainForm_FocusChanged (HasFocus As Boolean)
+	B4XPages.Delegate.MainForm_FocusChanged(HasFocus)
+End Sub
+
+Sub MainForm_Resize (Width As Double, Height As Double)
+	B4XPages.Delegate.MainForm_Resize(Width, Height)
+End Sub
+
+Sub MainForm_Closed
+	B4XPages.Delegate.MainForm_Closed
+End Sub
+
+Sub MainForm_CloseRequest (EventData As Event)
+	B4XPages.Delegate.MainForm_CloseRequest(EventData)
+End Sub
+
+Public Sub MainForm_IconifiedChanged (Iconified As Boolean)
+	B4XPages.Delegate.MainForm_IconifiedChanged(Iconified)
+End Sub
+#End Region
